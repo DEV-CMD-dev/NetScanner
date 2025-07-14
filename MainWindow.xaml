@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="NetScanner" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <DockPanel Grid.Row="0">
+            <TextBox
+                DockPanel.Dock="Left"
+                Name="ipAdressTextBox"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="5"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Width="400"></TextBox>
+            <Button Content="Ping"
+                    DockPanel.Dock="Right"
+                    Width="50" Click="PingButton_Click"></Button>
+        </DockPanel>
+
+        <Label Grid.Row="1"
+               FontSize="15"
+               FontWeight="Bold">Log:</Label>
+        <ListBox Name="pingLog"
+                 Grid.Row="2"
+                 FontSize="13"
+                 FontWeight="Bold"></ListBox>
     </Grid>
 </Window>

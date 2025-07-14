@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.NetworkInformation;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,15 @@ namespace NetScanner
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void PingButton_Click(object sender, RoutedEventArgs e)
+        {
+            var res = NetworkTools.Ping(ipAdressTextBox.Text);
+            foreach (var str in res)
+            {
+                pingLog.Items.Add(str);
+            }
         }
     }
 }
